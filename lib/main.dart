@@ -1,9 +1,13 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gre/pages/home_page.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  FirebaseAnalytics analytics = FirebaseAnalytics();
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -23,6 +27,9 @@ class MyApp extends StatelessWidget {
       ),
       home: HomePage(),
       debugShowCheckedModeBanner: false,
+      navigatorObservers: [
+        FirebaseAnalyticsObserver(analytics: analytics),
+      ],
     );
   }
 }

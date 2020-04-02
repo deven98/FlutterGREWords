@@ -3,7 +3,7 @@ import 'package:flutter_gre/data/word.dart';
 import 'package:flutter_gre/data/words.dart';
 import 'package:flutter_gre/theme_data.dart';
 import 'package:flutter_gre/sqlite/db_provider.dart';
-import 'package:tts/tts.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 class LearnWordsPage extends StatefulWidget {
   @override
@@ -13,6 +13,7 @@ class LearnWordsPage extends StatefulWidget {
 class _LearnWordsPageState extends State<LearnWordsPage> {
 
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+  FlutterTts flutterTts = FlutterTts();
 
   var gradients = [
     LinearGradient(
@@ -181,6 +182,6 @@ class _LearnWordsPageState extends State<LearnWordsPage> {
   }
 
   void _speakWord(String word) async {
-    Tts.speak(word);
+    await flutterTts.speak(word);
   }
 }
