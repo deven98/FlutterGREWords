@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gre/pages/about_app_screen.dart';
+import 'package:flutter_gre/pages/gre_info_screen.dart';
 import 'package:flutter_gre/pages/learn_words_page.dart';
 import 'package:flutter_gre/pages/login_screen.dart';
 import 'package:flutter_gre/pages/saved_words_page.dart';
@@ -123,12 +125,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   CategoryTitle(
                     onTap: () {
-//                      Navigator.push(
-//                        context,
-//                        MaterialPageRoute(
-//                          builder: (context) => SavedWordsPage(),
-//                        ),
-//                      );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => GreInfoScreen(),
+                        ),
+                      );
                     },
                     heroTag: "title4",
                     title: "GRE Info",
@@ -138,12 +140,12 @@ class _HomePageState extends State<HomePage> {
                   ),
                   CategoryTitle(
                     onTap: () {
-//                      Navigator.push(
-//                        context,
-//                        MaterialPageRoute(
-//                          builder: (context) => SavedWordsPage(),
-//                        ),
-//                      );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AboutAppScreen(),
+                        ),
+                      );
                     },
                     heroTag: "title5",
                     title: "About App",

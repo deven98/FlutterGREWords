@@ -118,9 +118,9 @@ class _LoginScreenState extends State<LoginScreen>
                     child: Text(
                       "Sign in with Email",
                       style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold),
+                        color: Colors.black,
+                        fontSize: 18.0,
+                      ),
                     ),
                   ),
                 ],
@@ -149,9 +149,9 @@ class _LoginScreenState extends State<LoginScreen>
                     child: Text(
                       "Anonymous Login",
                       style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
-                          fontWeight: FontWeight.bold),
+                        color: Colors.black,
+                        fontSize: 18.0,
+                      ),
                     ),
                   ),
                 ],

@@ -24,6 +24,8 @@ dependencies:
   flutter_auth_buttons: ^0.7.0
   apple_sign_in: ^0.1.0
   regexed_validator: ^1.0.2
+  url_launcher: ^5.4.2
+  share: ^0.6.3+6
 
   flutter:
     sdk: flutter
