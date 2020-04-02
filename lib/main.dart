@@ -1,7 +1,9 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gre/pages/home_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
 
@@ -11,6 +13,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.deepPurple
+    ));
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -23,7 +29,8 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepPurple,
+        textTheme: GoogleFonts.openSansTextTheme()
       ),
       home: HomePage(),
       debugShowCheckedModeBanner: false,

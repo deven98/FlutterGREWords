@@ -122,21 +122,40 @@ class _SavedWordsPageState extends State<SavedWordsPage> {
         return Container(
           width: double.infinity,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  words[position].wordTitle,
-                  style: TextStyle(color: Colors.white, fontSize: 30.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        words[position].wordTitle,
+                        style: TextStyle(color: Colors.white, fontSize: 30.0),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        words[position].wordDefinition,
+                        style: TextStyle(color: Colors.white, fontSize: 18.0),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  words[position].wordDefinition,
-                  style: TextStyle(color: Colors.white, fontSize: 18.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(Icons.keyboard_arrow_up, color: Colors.white,),
+                    SizedBox(width: 8.0,),
+                    Text("Swipe Up", style: TextStyle(color: Colors.white),),
+                    SizedBox(width: 8.0,),
+                    Icon(Icons.keyboard_arrow_up, color: Colors.white,),
+                  ],
                 ),
               ),
             ],

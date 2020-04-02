@@ -18,6 +18,8 @@ dependencies:
   flutter_tts: ^0.9.1
   firebase_core: ^0.4.4+3
   firebase_analytics: ^5.0.11
+  google_fonts: ^0.3.10
+
   flutter:
     sdk: flutter
 
