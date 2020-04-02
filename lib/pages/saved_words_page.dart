@@ -150,11 +150,24 @@ class _SavedWordsPageState extends State<SavedWordsPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Icon(Icons.keyboard_arrow_up, color: Colors.white,),
-                    SizedBox(width: 8.0,),
-                    Text("Swipe Up", style: TextStyle(color: Colors.white),),
-                    SizedBox(width: 8.0,),
-                    Icon(Icons.keyboard_arrow_up, color: Colors.white,),
+                    Icon(
+                      Icons.keyboard_arrow_up,
+                      color: Colors.white,
+                    ),
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                    Text(
+                      "Swipe Up",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    SizedBox(
+                      width: 8.0,
+                    ),
+                    Icon(
+                      Icons.keyboard_arrow_up,
+                      color: Colors.white,
+                    ),
                   ],
                 ),
               ),

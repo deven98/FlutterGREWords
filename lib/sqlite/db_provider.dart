@@ -45,8 +45,7 @@ class DBProvider {
     final db = await database;
     var res = await db.query("Words");
     List<Word> list =
-    res.isNotEmpty ? res.map((c) => Word.fromJson(c)).toList() : [];
+        res.isNotEmpty ? res.map((c) => Word.fromJson(c)).toList() : [];
     return list;
   }
-  
 }

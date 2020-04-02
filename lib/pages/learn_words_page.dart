@@ -13,7 +13,6 @@ class LearnWordsPage extends StatefulWidget {
 }
 
 class _LearnWordsPageState extends State<LearnWordsPage> {
-
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
   FlutterTts flutterTts = FlutterTts();
 
@@ -72,6 +71,18 @@ class _LearnWordsPageState extends State<LearnWordsPage> {
       colors: [
         Color(0xffcc2b5e),
         Color(0xff753a88),
+      ],
+      stops: [
+        0.0,
+        1.0,
+      ],
+      begin: Alignment.bottomLeft,
+      end: Alignment.topRight,
+    ),
+    LinearGradient(
+      colors: [
+        Color(0xff56ab2f),
+        Color(0xffa8e063),
       ],
       stops: [
         0.0,
@@ -144,16 +155,23 @@ class _LearnWordsPageState extends State<LearnWordsPage> {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     randomWordList[position].wordTitle,
-                                    style: TextStyle(color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.bold),
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 30.0,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    _speakWord(randomWordList[position].wordTitle);
+                                    _speakWord(
+                                        randomWordList[position].wordTitle);
                                   },
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Icon(Icons.volume_up, color: Colors.white,),
+                                    child: Icon(
+                                      Icons.volume_up,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                 )
                               ],
@@ -163,7 +181,8 @@ class _LearnWordsPageState extends State<LearnWordsPage> {
                             padding: const EdgeInsets.all(16.0),
                             child: Text(
                               randomWordList[position].wordDefinition,
-                              style: TextStyle(color: Colors.white, fontSize: 18.0),
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: 18.0),
                             ),
                           ),
                         ],
@@ -174,11 +193,24 @@ class _LearnWordsPageState extends State<LearnWordsPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Icon(Icons.keyboard_arrow_up, color: Colors.white,),
-                          SizedBox(width: 8.0,),
-                          Text("Swipe Up", style: TextStyle(color: Colors.white),),
-                          SizedBox(width: 8.0,),
-                          Icon(Icons.keyboard_arrow_up, color: Colors.white,),
+                          Icon(
+                            Icons.keyboard_arrow_up,
+                            color: Colors.white,
+                          ),
+                          SizedBox(
+                            width: 8.0,
+                          ),
+                          Text(
+                            "Swipe Up",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          SizedBox(
+                            width: 8.0,
+                          ),
+                          Icon(
+                            Icons.keyboard_arrow_up,
+                            color: Colors.white,
+                          ),
                         ],
                       ),
                     ),
@@ -199,7 +231,8 @@ class _LearnWordsPageState extends State<LearnWordsPage> {
                         Word(randomWordList[position].wordTitle,
                             randomWordList[position].wordDefinition),
                       );
-                      scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Word Added!")));
+                      scaffoldKey.currentState
+                          .showSnackBar(SnackBar(content: Text("Word Added!")));
                     },
                     child: Icon(
                       Icons.file_download,
@@ -231,7 +264,6 @@ class _LearnWordsPageState extends State<LearnWordsPage> {
 
     // Go through all elements.
     for (var i = items.length - 1; i > 0; i--) {
-
       // Pick a pseudorandom number according to the list length
       var n = random.nextInt(i + 1);
 

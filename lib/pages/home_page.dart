@@ -1,7 +1,9 @@
 import 'dart:math';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gre/pages/learn_words_page.dart';
+import 'package:flutter_gre/pages/login_screen.dart';
 import 'package:flutter_gre/pages/saved_words_page.dart';
 import 'package:flutter_gre/data/facts.dart';
 
@@ -11,8 +13,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   String fact = "";
+
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
   void initState() {
@@ -23,6 +26,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       body: SafeArea(
         child: Column(
@@ -50,16 +54,20 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
               child: Text(
                 "Did you know?",
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18.0),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-              child:
-                  Text(fact, style: TextStyle(color: Colors.white)),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+              child: Text(fact, style: TextStyle(color: Colors.white)),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -69,7 +77,8 @@ class _HomePageState extends State<HomePage> {
             ),
             Expanded(
               child: GridView(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2),
                 children: <Widget>[
                   CategoryTitle(
                     onTap: () {
@@ -103,12 +112,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   CategoryTitle(
                     onTap: () {
-//                      Navigator.push(
-//                        context,
-//                        MaterialPageRoute(
-//                          builder: (context) => SavedWordsPage(),
-//                        ),
-//                      );
+                      _scaffoldKey.currentState.showSnackBar(
+                          SnackBar(content: Text("Coming Mid-April 2020!")));
                     },
                     heroTag: "title3",
                     title: "Write Essays",
@@ -146,6 +151,21 @@ class _HomePageState extends State<HomePage> {
                     colorTwo: Color(0xff6dd5ed),
                     icon: Icons.phone_android,
                   ),
+                  CategoryTitle(
+                    onTap: () {
+                      FirebaseAuth.instance.signOut().then((value) =>
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()),
+                              (route) => false));
+                    },
+                    heroTag: "title6",
+                    title: "Logout",
+                    colorOne: Colors.red,
+                    colorTwo: Colors.red,
+                    icon: Icons.power_settings_new,
+                  ),
                 ],
               ),
             ),
@@ -164,7 +184,14 @@ class CategoryTitle extends StatelessWidget {
   final colorOne;
   final colorTwo;
 
-  const CategoryTitle({Key key, this.icon, this.title, this.onTap, this.heroTag, this.colorOne, this.colorTwo})
+  const CategoryTitle(
+      {Key key,
+      this.icon,
+      this.title,
+      this.onTap,
+      this.heroTag,
+      this.colorOne,
+      this.colorTwo})
       : super(key: key);
 
   @override
@@ -176,7 +203,12 @@ class CategoryTitle extends StatelessWidget {
           onTap: onTap,
           child: Stack(
             children: <Widget>[
-              Center(child: Icon(icon, color: Colors.white, size: 55.0,)),
+              Center(
+                  child: Icon(
+                icon,
+                color: Colors.white,
+                size: 55.0,
+              )),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
@@ -191,7 +223,7 @@ class CategoryTitle extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20.0,
-                          fontWeight: FontWeight.w300,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),

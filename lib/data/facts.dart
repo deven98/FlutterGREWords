@@ -1,4 +1,3 @@
-
 class FactData {
   static List<String> facts = [
     "The GRE General Test is taken by about 675,000 people from 230 countries each year.",

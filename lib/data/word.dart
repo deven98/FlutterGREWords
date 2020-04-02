@@ -24,12 +24,12 @@ class Word {
   );
 
   factory Word.fromJson(Map<String, dynamic> json) => new Word(
-    json["word_name"],
-    json["word_definition"],
-  );
+        json["word_name"],
+        json["word_definition"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "word_name": wordTitle,
-    "word_definition": wordDefinition,
-  };
+        "word_name": wordTitle,
+        "word_definition": wordDefinition,
+      };
 }
