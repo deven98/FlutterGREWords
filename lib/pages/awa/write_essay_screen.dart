@@ -125,11 +125,23 @@ class _WriteEssayScreenState extends State<WriteEssayScreen> {
 
                 FirebaseUser user = await FirebaseAuth.instance.currentUser();
 
+                var essays = await FirestoreService().getUserEssays(user.uid);
+
+                if(essays.length > 150) {
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Essay Limit!")));
+                  return;
+                }
+
+                if(_textController.text.length > 20000) {
+                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Character Limit Reached!")));
+                  return;
+                }
+
                 _firestoreService
                     .uploadEssay(
                   widget.essay.question,
                   widget.essay.type == EssayType.issue ? "Issue" : "Argument",
-                  _textController.text,
+                  _textController.text.trim(),
                   publicEssay,
                   user.uid,
                 )

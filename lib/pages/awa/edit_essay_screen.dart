@@ -57,7 +57,7 @@ class _EditEssayScreenState extends State<EditEssayScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(4.0),
                         child: Text(
-                          "Write",
+                          "Edit",
                           style: TextStyle(color: Colors.white, fontSize: 26.0),
                         ),
                       ),
