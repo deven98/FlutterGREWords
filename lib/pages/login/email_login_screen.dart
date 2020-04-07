@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gre/pages/home_page.dart';
-import 'package:flutter_gre/pages/reset_password_screen.dart';
-import 'package:flutter_gre/pages/verify_email_screen.dart';
+import 'package:flutter_gre/pages/login/reset_password_screen.dart';
+import 'package:flutter_gre/pages/login/verify_email_screen.dart';
 import 'package:regexed_validator/regexed_validator.dart';
 
 class EmailLoginScreen extends StatefulWidget {

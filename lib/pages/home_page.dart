@@ -2,11 +2,12 @@ import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gre/pages/about_app_screen.dart';
-import 'package:flutter_gre/pages/gre_info_screen.dart';
-import 'package:flutter_gre/pages/learn_words_page.dart';
-import 'package:flutter_gre/pages/login_screen.dart';
-import 'package:flutter_gre/pages/saved_words_page.dart';
+import 'package:flutter_gre/pages/awa/awa_list_screen.dart';
+import 'package:flutter_gre/pages/info/about_app_screen.dart';
+import 'package:flutter_gre/pages/info/gre_info_screen.dart';
+import 'package:flutter_gre/pages/vocabulary/learn_words_page.dart';
+import 'package:flutter_gre/pages/login/login_screen.dart';
+import 'package:flutter_gre/pages/vocabulary/saved_words_page.dart';
 import 'package:flutter_gre/data/facts.dart';
 
 class HomePage extends StatefulWidget {
@@ -113,12 +114,32 @@ class _HomePageState extends State<HomePage> {
                     icon: Icons.save,
                   ),
                   CategoryTitle(
-                    onTap: () {
-                      _scaffoldKey.currentState.showSnackBar(
-                          SnackBar(content: Text("Coming Mid-April 2020!")));
+                    onTap: () async {
+                      FirebaseUser user =
+                          await FirebaseAuth.instance.currentUser();
+
+                      if (user == null || user.isAnonymous) {
+                        _scaffoldKey.currentState.showSnackBar(SnackBar(
+                          content: Text("Not available for anonymous users"),
+                          action: SnackBarAction(
+                              label: "Sign In",
+                              onPressed: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginScreen()),
+                                    (route) => false);
+                              }),
+                        ));
+                      } else {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AwaListScreen()));
+                      }
                     },
                     heroTag: "title3",
-                    title: "Write Essays",
+                    title: "AWA Essays",
                     colorOne: Color(0xff56ab2f),
                     colorTwo: Color(0xffa8e063),
                     icon: Icons.edit,

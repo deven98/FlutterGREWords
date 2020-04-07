@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../theme_data.dart';
+import '../../theme_data.dart';
 
 class GreInfoScreen extends StatelessWidget {
   @override

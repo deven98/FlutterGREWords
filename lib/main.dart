@@ -3,7 +3,7 @@ import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gre/pages/home_page.dart';
-import 'package:flutter_gre/pages/splash_screen.dart';
+import 'package:flutter_gre/pages/login/splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() => runApp(MyApp());
