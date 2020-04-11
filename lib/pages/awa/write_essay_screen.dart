@@ -127,13 +127,15 @@ class _WriteEssayScreenState extends State<WriteEssayScreen> {
 
                 var essays = await FirestoreService().getUserEssays(user.uid);
 
-                if(essays.length > 150) {
-                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Essay Limit!")));
+                if (essays.length > 150) {
+                  _scaffoldKey.currentState
+                      .showSnackBar(SnackBar(content: Text("Essay Limit!")));
                   return;
                 }
 
-                if(_textController.text.length > 20000) {
-                  _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text("Character Limit Reached!")));
+                if (_textController.text.length > 20000) {
+                  _scaffoldKey.currentState.showSnackBar(
+                      SnackBar(content: Text("Character Limit Reached!")));
                   return;
                 }
 
